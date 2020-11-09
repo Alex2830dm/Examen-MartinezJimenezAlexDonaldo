@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix'=>'examen'], function(){
+    Route::post('cliente', 'controllerCliente@store');//registrar cliente
+    Route::patch('act-cliente', 'controllerCliente@update');//actualizar datos cliente    
+    Route::post('factura', 'controllerFactura@store');//registrar factura    
+    Route::post('producto', 'controllerProducto@store');//registrar producto
+    Route::patch('act-producto', 'controllerProducto@update');//actualizar producto    
+    Route::post('detalles', 'controllerDetalle_factura@store');//registrar detalles    
+});
